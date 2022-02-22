@@ -8,7 +8,7 @@ import {
     FETCH_LOCATIONS
 } from '../store/locations/locations.slice';
 
-export default function Options() {
+export default function () {
     // const dispatch = useDispatch();
 
     // React.useEffect(() => {
@@ -18,9 +18,11 @@ export default function Options() {
     //     fetchLocation();
     // }, [dispatch]);
     return (
-        <div className='w-2/4 flex flex-col'>
-            <InputSelect name={'pickupLocation'} />
-            <InputSelect name={'dropoffLocation'} />
+        <div className='w-2/4 flex flex-col gap-y-5'>
+            <div className='flex flex-col gap-y-3'>
+                <InputSelect name={'pickupLocation'} />
+                <InputSelect name={'dropoffLocation'} />
+            </div>
             <Button />
         </div>
     )

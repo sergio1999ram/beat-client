@@ -23,7 +23,7 @@ export default function InputSelect({ name }) {
 
     if (name === 'pickupLocation')
         return (
-            <select name={name} id={`${name}-select`} onChange={handleChange}>
+            <select name={name} id={`${name}-select`} onChange={handleChange} className='border-2 border-black text-sm py-1.5 bg-slate-100'>
                 <option value={JSON.stringify({})}>
                     {name === 'pickupLocation' && 'Select a pick up location'}
                 </option>
@@ -35,7 +35,7 @@ export default function InputSelect({ name }) {
             </select>
         )
     return (
-        <select name={name} id={`${name}-select`} onChange={handleChange}>
+        <select name={name} id={`${name}-select`} onChange={handleChange} className='border-2 border-black text-sm py-1.5 bg-slate-100'>
             <option value={JSON.stringify({})}>
                 {name === 'dropoffLocation' && 'Select a drop off location'}
             </option>
