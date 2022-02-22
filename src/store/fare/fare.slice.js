@@ -8,7 +8,7 @@ export const fareSlice = createSlice({
     },
     reducers: {
         SET_FARE: (state, action) => {
-            state.fare = action.payload;
+            state.value = action.payload;
         },
         LOADING_START: state => {
             state.loading = true;

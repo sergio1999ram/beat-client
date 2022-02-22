@@ -6,12 +6,11 @@ import Button from './forms/Button/Button';
 
 import axios from 'axios';
 
-import {
-    FETCH_LOCATIONS
-} from '../store/locations/locations.slice';
+import { FETCH_LOCATIONS } from '../store/locations/locations.slice';
+import { SET_FARE } from '../store/fare/fare.slice';
 
 export default function () {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const pickupLocation = useSelector(state => state.locations.pickupLocation)
     const dropoffLocation = useSelector(state => state.locations.dropoffLocation);
 
@@ -27,7 +26,10 @@ export default function () {
         console.log('Pick up location:', pickupLocation);
         console.log('Drop off location', dropoffLocation);
 
-        // const { data } = await axios.post('localhost:3001/api/distance', { pickupLocation, dropoffLocation });
+        const { data } = await axios.post('http://localhost:3001/api/price', { pickupLocation, dropoffLocation });
+        const { fare } = data;
+        console.log('Fare:', fare);
+        dispatch(SET_FARE(fare));
     }
     return (
         <form onSubmit={handleSubmit} className='w-2/4 px-3 pb-5 flex flex-col gap-y-5'>

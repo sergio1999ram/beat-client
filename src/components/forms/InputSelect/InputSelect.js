@@ -9,14 +9,18 @@ import {
 export default function InputSelect({ name }) {
     const locations = useSelector(state => state.locations.locations)
     const pickupLocation = useSelector(state => state.locations.pickupLocation);
+    const dropoffLocation = useSelector(state => state.locations.dropoffLocation);
 
     const dispatch = useDispatch();
 
     function handleChange({ target }) {
         const location = JSON.parse(target.value);
 
-        if (name === 'pickupLocation')
+        if (name === 'pickupLocation') {
             dispatch(SET_PICKUP_LOCATION(location));
+            if (pickupLocation.name === dropoffLocation.name)
+                dispatch(SET_DROPOFF_LOCATION({}));
+        }
         else
             dispatch(SET_DROPOFF_LOCATION(location));
     }
