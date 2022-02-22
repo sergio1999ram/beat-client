@@ -1,12 +1,11 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
 
 import InputSelect from './forms/InputSelect/InputSelect';
 import Button from './forms/Button/Button';
 
-import axios from 'axios';
-
-import { SET_FARE } from '../store/fare/fare.slice';
+import { SET_FARE } from '../redux/fare/fare.slice';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function () {
     const dispatch = useDispatch();

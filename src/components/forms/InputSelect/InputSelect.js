@@ -1,17 +1,17 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import {
     SET_PICKUP_LOCATION,
     SET_DROPOFF_LOCATION
-} from '../../../store/locations/locations.slice';
+} from '../../../redux/locations/locations.slice';
 
 export default function InputSelect({ name }) {
-    const locations = useSelector(state => state.locations.locations)
-    const pickupLocation = useSelector(state => state.locations.pickupLocation);
-    const dropoffLocation = useSelector(state => state.locations.dropoffLocation);
+    const locations = useAppSelector(state => state.locations.locations)
+    const pickupLocation = useAppSelector(state => state.locations.pickupLocation);
+    const dropoffLocation = useAppSelector(state => state.locations.dropoffLocation);
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     function handleChange({ target }) {
         const location = JSON.parse(target.value);

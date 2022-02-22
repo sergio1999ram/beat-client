@@ -8,6 +8,7 @@ export const FETCH_LOCATIONS = createAsyncThunk(
         return data;
     }
 )
+
 export const locationSlice = createSlice({
     name: 'locations',
     initialState: {

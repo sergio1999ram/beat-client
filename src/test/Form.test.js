@@ -1,11 +1,27 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import axios from 'axios';
-import reducer from '../store/locations/locations.slice';
+import { mount, shallow } from 'enzyme';
 
-describe("Store initial state", () => {
-    it("should return the initial state", () => {
-        const { data } = await axios.get('http://localhost:3001/api/locations');
-        console.log(data);
-    })
+import { Provider } from 'react-redux';
+import { store } from '../redux/store';
+
+import Form from '../components/Form';
+import { FETCH_LOCATIONS } from '../redux/locations/locations.slice';
+import rootReducer from '../redux/rootReducer';
+
+import axios from 'axios';
+
+import App from '../App';
+
+jest.mock('axios');
+jest.mock('react-redux');
+
+describe("rendering component", () => {
+
+    it("renders Form component without crashing", () => {
+        shallow(
+            <Provider store={store}>
+                <Form />
+            </Provider>
+        )
+    });
 })

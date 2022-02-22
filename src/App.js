@@ -1,9 +1,9 @@
 import React from 'react';
 
 // Redux
-import { FETCH_LOCATIONS } from './store/locations/locations.slice';
+import { FETCH_LOCATIONS } from './redux/locations/locations.slice';
 
-import { store } from './store/store';
+import { store } from './redux/store';
 import { Provider } from 'react-redux';
 
 import Form from './components/Form';

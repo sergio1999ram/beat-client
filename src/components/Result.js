@@ -1,8 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../redux/hooks';
 
 export default function Result() {
-    const fare = useSelector(state => state.fare.value);
+    const fare = useAppSelector(state => state.fare.value);
 
     return (
         <div className='w-2/4 px-3 pb-5 flex'>
