@@ -18,11 +18,15 @@ export default function InputSelect({ name }) {
 
         if (name === 'pickupLocation') {
             dispatch(SET_PICKUP_LOCATION(location));
-            if (pickupLocation.name === dropoffLocation.name)
+            if (pickupLocation._id === dropoffLocation._id) {
+                console.log(pickupLocation._id === dropoffLocation._id)
                 dispatch(SET_DROPOFF_LOCATION({}));
+            }
         }
-        else
+        else {
+            console.log(location, name)
             dispatch(SET_DROPOFF_LOCATION(location));
+        }
     }
 
     if (name === 'pickupLocation')
@@ -32,8 +36,8 @@ export default function InputSelect({ name }) {
                     {name === 'pickupLocation' && 'Select a pick up location'}
                 </option>
                 {
-                    locations.map((location, index) => (
-                        <option value={JSON.stringify(location)} key={index}>{location.name}</option>
+                    locations.map(location => (
+                        <option value={JSON.stringify(location)} key={location._id}>{location.name}</option>
                     ))
                 }
             </select>
@@ -44,8 +48,8 @@ export default function InputSelect({ name }) {
                 {name === 'dropoffLocation' && 'Select a drop off location'}
             </option>
             {
-                locations.map((location, index) => (
-                    location.name !== pickupLocation.name && <option value={JSON.stringify(location)} key={index}>{location.name}</option>
+                locations.map(location => (
+                    location._id !== pickupLocation._id && <option value={JSON.stringify(location)} key={location._id}>{location.name}</option>
                 ))
             }
         </select>
