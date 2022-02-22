@@ -17,13 +17,18 @@ export default function () {
     //     }
     //     fetchLocation();
     // }, [dispatch]);
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log('submit');
+    }
     return (
-        <div className='w-2/4 flex flex-col gap-y-5 px-3 pb-5'>
+        <form onSubmit={handleSubmit} className='w-2/4 px-3 pb-5 flex flex-col gap-y-5'>
             <div className='flex flex-col gap-y-3'>
                 <InputSelect name={'pickupLocation'} />
                 <InputSelect name={'dropoffLocation'} />
             </div>
             <Button />
-        </div>
+        </form>
     )
 }
