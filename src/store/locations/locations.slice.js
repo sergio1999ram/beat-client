@@ -1,13 +1,17 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import axios from 'axios';
 
-import locations from '../../utils/constants/locations';
-
+export const FETCH_LOCATIONS = createAsyncThunk(
+    'FETCH_LOCATIONS', async (thunkAPI) => {
+        const { data } = await axios.get('http://localhost:3001/api/locations');
+        return data;
+    }
+)
 export const locationSlice = createSlice({
     name: 'locations',
     initialState: {
-        locations: locations,
+        locations: [],
         pickupLocation: {},
         dropoffLocation: {}
     },
@@ -19,15 +23,17 @@ export const locationSlice = createSlice({
             state.dropoffLocation = action.payload;
         },
         SET_LOCATIONS: (state, action) => {
+            console.log(action);
             state.locations = action.payload;
         }
+    },
+    extraReducers: builder => {
+        builder.addCase(FETCH_LOCATIONS.fulfilled, (state, action) => {
+            state.locations = action.payload.locations;
+        })
     }
 })
 
 export const { SET_PICKUP_LOCATION, SET_DROPOFF_LOCATION, SET_LOCATIONS } = locationSlice.actions;
 
-export const FETCH_LOCATIONS = async () => async dispatch => {
-    const { data } = await axios.get('https://jsonplaceholder.typicode.com/todos/');
-    dispatch(SET_LOCATIONS(data));
-}
 export default locationSlice.reducer;

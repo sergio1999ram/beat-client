@@ -6,20 +6,12 @@ import Button from './forms/Button/Button';
 
 import axios from 'axios';
 
-import { FETCH_LOCATIONS } from '../store/locations/locations.slice';
 import { SET_FARE } from '../store/fare/fare.slice';
 
 export default function () {
     const dispatch = useDispatch();
     const pickupLocation = useSelector(state => state.locations.pickupLocation)
     const dropoffLocation = useSelector(state => state.locations.dropoffLocation);
-
-    // React.useEffect(() => {
-    //     async function fetchLocation() {
-    //         dispatch(await FETCH_LOCATIONS());
-    //     }
-    //     fetchLocation();
-    // }, [dispatch]);
 
     async function handleSubmit(e) {
         e.preventDefault();

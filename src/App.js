@@ -1,11 +1,15 @@
 import React from 'react';
 
 // Redux
-import store from './store/store';
+import { FETCH_LOCATIONS } from './store/locations/locations.slice';
+
+import { store } from './store/store';
 import { Provider } from 'react-redux';
 
 import Form from './components/Form';
 import Result from './components/Result';
+
+store.dispatch(FETCH_LOCATIONS());
 
 function App() {
   return (
