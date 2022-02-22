@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import InputSelect from './forms/InputSelect/InputSelect';
 import Button from './forms/Button/Button';
 
+import axios from 'axios';
+
 import {
     FETCH_LOCATIONS
 } from '../store/locations/locations.slice';
@@ -20,10 +22,12 @@ export default function () {
     //     fetchLocation();
     // }, [dispatch]);
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
         console.log('Pick up location:', pickupLocation);
         console.log('Drop off location', dropoffLocation);
+
+        // const { data } = await axios.post('localhost:3001/api/distance', { pickupLocation, dropoffLocation });
     }
     return (
         <form onSubmit={handleSubmit} className='w-2/4 px-3 pb-5 flex flex-col gap-y-5'>
