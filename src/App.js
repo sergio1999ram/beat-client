@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+
+// Redux
+import store from './store/store';
+import { Provider } from 'react-redux';
+
+import Options from './components/Options';
+import Result from './components/Result';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className='w-[40%] m-auto p-3 border-2 border-black flex flex-col gap-y-3'>
+        <h2 className='w-2/4 text-2xl font-medium'>Estimate your fare and ride with BEAT</h2>
+        <div className='flex'>
+          <Options />
+          <Result />
+        </div>
+      </div>
+    </Provider>
   );
 }
 
