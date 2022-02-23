@@ -23,10 +23,6 @@ export const locationSlice = createSlice({
         SET_DROPOFF_LOCATION: (state, action) => {
             state.dropoffLocation = action.payload;
         },
-        SET_LOCATIONS: (state, action) => {
-            console.log(action);
-            state.locations = action.payload;
-        }
     },
     extraReducers: builder => {
         builder.addCase(FETCH_LOCATIONS.fulfilled, (state, action) => {
@@ -35,6 +31,6 @@ export const locationSlice = createSlice({
     }
 });
 
-export const { SET_PICKUP_LOCATION, SET_DROPOFF_LOCATION, SET_LOCATIONS } = locationSlice.actions;
+export const { SET_PICKUP_LOCATION, SET_DROPOFF_LOCATION } = locationSlice.actions;
 
 export default locationSlice.reducer;
