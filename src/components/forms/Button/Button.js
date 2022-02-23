@@ -8,4 +8,4 @@ export default function Button() {
     return (
         <input value='Estimate now!' disabled={Object.keys(pickupLocation).length === 0 || Object.keys(dropoffLocation).length === 0 || pickupLocation._id === dropoffLocation._id} type='submit' className='border-black border-[1.5px] py-1 disabled:cursor-not-allowed disabled:bg-red-300 cursor-pointer' />
     )
-}
+};

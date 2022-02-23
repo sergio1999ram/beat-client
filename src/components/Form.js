@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export default function () {
     const dispatch = useDispatch();
-    const pickupLocation = useSelector(state => state.locations.pickupLocation)
+    const pickupLocation = useSelector(state => state.locations.pickupLocation);
     const dropoffLocation = useSelector(state => state.locations.dropoffLocation);
 
     async function handleSubmit(e) {
@@ -21,7 +21,8 @@ export default function () {
         const { fare } = data;
         console.log('Fare:', fare);
         dispatch(SET_FARE(fare));
-    }
+    };
+
     return (
         <form onSubmit={handleSubmit} className='w-2/4 px-3 pb-5 flex flex-col gap-y-5'>
             <div className='flex flex-col gap-y-3'>
@@ -30,5 +31,5 @@ export default function () {
             </div>
             <Button />
         </form>
-    )
-}
+    );
+};

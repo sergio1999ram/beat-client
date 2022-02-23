@@ -7,7 +7,7 @@ export const FETCH_LOCATIONS = createAsyncThunk(
         const { data } = await axios.get('http://localhost:3001/api/locations');
         return data;
     }
-)
+);
 
 export const locationSlice = createSlice({
     name: 'locations',
@@ -33,7 +33,7 @@ export const locationSlice = createSlice({
             state.locations = action.payload.locations;
         })
     }
-})
+});
 
 export const { SET_PICKUP_LOCATION, SET_DROPOFF_LOCATION, SET_LOCATIONS } = locationSlice.actions;
 

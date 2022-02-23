@@ -11,4 +11,4 @@ export default function Result() {
             </div>
         </div>
     )
-}
+};

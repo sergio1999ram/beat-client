@@ -1,4 +1,4 @@
-import { configureStore, applyMiddleware, createStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 import rootReducer from './rootReducer';
 
@@ -6,7 +6,7 @@ import rootReducer from './rootReducer';
 
 export const store = configureStore({
     reducer: rootReducer,
-})
+});
 
 export const useAppDispatch = () => useDispatch();
 export const useAppSelector = useSelector;
